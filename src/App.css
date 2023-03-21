@@ -36,3 +36,11 @@
 .options{
   width: 100%;
 }
+
+.active,
+.Menu button:hover,
+.Quiz button:hover,
+.endScreen button:hover{
+  background-color: #666;
+  color: white;
+}

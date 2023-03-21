@@ -6,12 +6,13 @@ function Quiz() {
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [optionChosen, setOptionChosen] = useState("")
 
-    const nextQustion = () => {
+    const nextQuestion = () => {
         console.log(optionChosen)
         if(Questions[currentQuestion].answer == optionChosen){
             setScore(score + 1);
         }
         setCurrentQuestion(currentQuestion + 1);
+        setOptionChosen("");
     }
 
     const finishQuiz =() => {
@@ -32,9 +33,9 @@ function Quiz() {
             </div>
 
             {currentQuestion == Questions.length-1 ? (
-                <button onClick={finishQuiz}>Finish Quiz</button>
+                <button onClick={finishQuiz} disabled={!optionChosen}>Finish Quiz</button>
             ) : (
-                <button onClick={nextQustion}>Next Question</button>
+                <button onClick={nextQuestion} disabled={!optionChosen}>Next Question</button>
             )}
         </div>
     );
